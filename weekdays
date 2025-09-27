@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class WeekdayMapper {
+
+    public static void main(String[] args) {
+        // Create a Scanner object to read input
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the integer input (guaranteed to be 0-6 by constraints)
+        int dayNumber = scanner.nextInt();
+
+        // Use a switch statement for clear and efficient mapping
+        String weekday;
+        switch (dayNumber) {
+            case 0:
+                weekday = "Sunday";
+                break;
+            case 1:
+                weekday = "Monday";
+                break;
+            case 2:
+                weekday = "Tuesday";
+                break;
+            case 3:
+                weekday = "Wednesday";
+                break;
+            case 4:
+                weekday = "Thursday";
+                break;
+            case 5:
+                weekday = "Friday";
+                break;
+            case 6:
+                weekday = "Saturday";
+                break;
+            default:
+                // This 'default' case handles inputs outside the 0-6 range,
+                // although the constraints say it won't happen.
+                weekday = "Invalid Day Number"; 
+                break;
+        }
+
+        // Print the result
+        System.out.println(weekday);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
