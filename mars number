@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class MarsNumberChecker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        sc.close();
+
+        int steps = 0;
+        int current = num;
+
+        while (current >= 10) { // Repeat until single digit
+            current = sumOfDigits(current);
+            steps++;
+        }
+
+        if (steps % 2 == 0) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+
+    // Helper method to sum digits of a number
+    private static int sumOfDigits(int n) {
+        int sum = 0;
+        while (n > 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+        return sum;
+    }
+}
