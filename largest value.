@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int l = sc.nextInt();
+      int e = sc.nextInt();
+      int a = sc.nextInt();
+      if(l>e&&l>a){
+        System.out.println(l);
+      }
+      else if(e>a){
+        System.out.println(e);
+      }
+      else{
+        System.out.println(a);
+      }
+      }
+}
