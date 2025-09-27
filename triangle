@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class TriangleClassifier {
+
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the console
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt the user for the three angles
+        // The problem description implies the input is given one line at a time
+        try {
+            int a = scanner.nextInt();
+            int b = scanner.nextInt();
+            int c = scanner.nextInt();
+
+            // Perform the validity and classification logic
+            String result = classifyTriangle(a, b, c);
+            
+            // Print the output
+            System.out.print(result);
+
+        } catch (java.util.InputMismatchException e) {
+            // Handle cases where the input is not a valid integer
+            System.out.println("NOT VALID");
+            System.out.println(""); // Print an empty line
+        } finally {
+            // Close the scanner
+            scanner.close();
+        }
+    }
+
+    /**
+     * Determines if the given angles form a valid triangle and, if so, 
+     * classifies its type.
+     * @param a The first angle.
+     * @param b The second angle.
+     * @param c The third angle.
+     * @return A string containing the validity status on the first line 
+     * and the type (or empty) on the second line.
+     */
+    public static String classifyTriangle(int a, int b, int c) {
+        
+        // 1. Check constraints and Angle Sum Property for VALIDITY
+        // A triangle is valid if:
+        // a) All angles are strictly positive (A > 0, B > 0, C > 0).
+        // b) The sum of the angles is exactly 180 degrees.
+        if (a <= 0 || b <= 0 || c <= 0 || (a + b + c) != 180) {
+            return "NOT VALID\n";
+        }
+        
+        // 2. If valid, determine the TYPE
+        String type;
+        
+        // EQUILATERAL: All three angles are equal.
+        if (a == b && b == c) {
+            type = "EQUILALTERAL";
+        } 
+        // ISOSCELES: Exactly two angles are equal.
+        else if (a == b || b == c || a == c) {
+            type = "ISOSCELES";
+        } 
+        // SCALENE: No two angles are equal.
+        else {
+            type = "SCALENE";
+        }
+
+        // Return the final formatted output
+        return "VALID\n" + type;
+    }
+}
