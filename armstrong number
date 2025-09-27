@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class ArmstrongNumberChecker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        sc.close();
+
+        if (num <= 0 || num >= 1000000) {
+            System.out.println("NO"); // Out of constraints, treat as NO
+            return;
+        }
+
+        int originalNum = num;
+        int sum = 0;
+
+        // Count number of digits
+        int digits = String.valueOf(num).length();
+
+        while (num > 0) {
+            int digit = num % 10;
+            sum += Math.pow(digit, digits);
+            num /= 10;
+        }
+
+        if (sum == originalNum) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
