@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class EvenOddSwitch {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        sc.close();
+
+        // Constraint check
+        if (num < 0 || num > 1000) {
+            System.out.println("Invalid input");
+            return;
+        }
+
+        switch (num % 2) {
+            case 0:
+                System.out.println("EVEN");
+                break;
+            case 1:
+                System.out.println("ODD");
+                break;
+        }
+    }
+}
