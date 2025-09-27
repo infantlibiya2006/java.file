@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class PalindromeCheck {
+
+    public static void main(String[] args) {
+        // Create a Scanner object to read input
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the 3-digit integer
+        int input = scanner.nextInt();
+        
+       
+        int lastDigit = input % 10;
+        
+        // Extract the first digit (a in 'abc')
+        // Integer division by 100 truncates the last two digits.
+        int firstDigit = input / 100;
+
+        // Check if the first digit equals the last digit
+        if (firstDigit == lastDigit) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
